@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import torch
 import torch.nn as nn
 import numpy as np
-from utils import preprocess_genre_input, preprocess_title_overview_input, preprocess_poster_input
+from utils import preprocess_genre_input
 from werkzeug.utils import secure_filename
 import os
 import pickle
