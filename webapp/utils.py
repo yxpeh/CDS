@@ -28,7 +28,7 @@ def preprocess_genre_input(budget, runtime, viewCount, likeCount, favoriteCount,
     combined = np.concatenate([numeric, genre_onehot]).reshape(1, -1)
     return combined
 
-def preprocess_title_overview_input(title, overview):
+def preprocess_title_overview_input(title, overview, tags):
     # TODO: Replace with your real preprocessing logic
     # For now, return a dummy 10D vector
     vector = np.random.rand(10).astype(np.float32)
