@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie Revenue Predictor</title>
+  </head>
+  <body>
+    <h1>Movie Revenue Predictor</h1>
+    <form method="post" enctype="multipart/form-data">
+      <label for="genre">Genre:</label><br />
+      <select name="genre" id="genre">
+        {% for g in genres %}
+        <option value="{{ g }}">{{ g }}</option>
+        {% endfor %}</select
+      ><br /><br />
+
+      <label for="title">Title:</label><br />
+      <input type="text" name="title" id="title" required /><br /><br />
+
+      <label for="overview">Overview:</label><br />
+      <textarea
+        name="overview"
+        id="overview"
+        rows="4"
+        cols="50"
+        required
+      ></textarea
+      ><br /><br />
+
+      <label for="poster">Poster Image:</label><br />
+      <input
+        type="file"
+        name="poster"
+        id="poster"
+        accept="image/*"
+        required
+      /><br /><br />
+
+      <input type="submit" value="Predict" />
+    </form>
+
+    {% if prediction %}
+    <h2>Predicted Revenue: ${{ prediction/1000000 | round(2) }}M</h2>
+    {% endif %}
+  </body>
+</html>
