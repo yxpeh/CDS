@@ -6,34 +6,54 @@
   <body>
     <h1>Movie Revenue Predictor</h1>
     <form method="post" enctype="multipart/form-data">
+      <label for="title">Title:</label><br />
+      <input type="text" name="title" required /><br /><br />
+
+      <label for="overview">Overview:</label><br />
+      <textarea name="overview" rows="4" cols="50" required></textarea
+      ><br /><br />
+
+      <label for="poster">Poster Image:</label><br />
+      <input type="file" name="poster" accept="image/*" required /><br /><br />
+
+      <label for="budget">Budget ($):</label><br />
+      <input type="number" name="budget" step="0.01" required /><br /><br />
+
       <label for="genre">Genre:</label><br />
-      <select name="genre" id="genre">
+      <select name="genre" id="genre" required>
         {% for g in genres %}
         <option value="{{ g }}">{{ g }}</option>
         {% endfor %}</select
       ><br /><br />
 
-      <label for="title">Title:</label><br />
-      <input type="text" name="title" id="title" required /><br /><br />
-
-      <label for="overview">Overview:</label><br />
-      <textarea
-        name="overview"
-        id="overview"
-        rows="4"
-        cols="50"
-        required
-      ></textarea
+      <label for="release_month">Release Month:</label><br />
+      <select name="release_month" required>
+        {% for m in months %}
+        <option value="{{ m }}">{{ m }}</option>
+        {% endfor %}</select
       ><br /><br />
 
-      <label for="poster">Poster Image:</label><br />
-      <input
-        type="file"
-        name="poster"
-        id="poster"
-        accept="image/*"
-        required
-      /><br /><br />
+      <label for="runtime">Runtime (minutes):</label><br />
+      <input type="number" name="runtime" step="1" required /><br /><br />
+
+      <label>Trailer Stats:</label><br />
+      <div style="display: flex; gap: 10px">
+        <input type="number" name="view_count" placeholder="Views" required />
+        <input type="number" name="like_count" placeholder="Likes" required />
+        <input
+          type="number"
+          name="favourite_count"
+          placeholder="Favourites"
+          required
+        />
+        <input
+          type="number"
+          name="comment_count"
+          placeholder="Comments"
+          required
+        />
+      </div>
+      <br />
 
       <input type="submit" value="Predict" />
     </form>
